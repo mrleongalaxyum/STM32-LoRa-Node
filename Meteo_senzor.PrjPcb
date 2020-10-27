@@ -72,23 +72,6 @@ GenerateClassCluster=0
 DocumentUniqueId=NGRNHPDA
 
 [Document3]
-DocumentPath=..\..\..\..\Altium templates\FER_A4.SchDot
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=ATUXSGBO
-
-[Document4]
 DocumentPath=Top.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -105,7 +88,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YQQUJCDU
 
-[Document5]
+[Document4]
 DocumentPath=MCU.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -122,7 +105,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QSTGRHCQ
 
-[Document6]
+[Document5]
 DocumentPath=Meteo_senzor.Annotation
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -139,7 +122,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document7]
+[Document6]
 DocumentPath=Battery Circuit.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -156,7 +139,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KMDWZSXR
 
-[Document8]
+[Document7]
 DocumentPath=Meteo_senzor.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -173,7 +156,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document9]
+[Document8]
 DocumentPath=BME280.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -189,6 +172,23 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=BTMPOVWA
+
+[Document9]
+DocumentPath=Connectors.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=CEPDFMXE
 
 [Configuration1]
 Name=Sources
