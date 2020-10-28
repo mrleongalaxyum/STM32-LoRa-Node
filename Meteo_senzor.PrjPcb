@@ -191,23 +191,6 @@ GenerateClassCluster=0
 DocumentUniqueId=CEPDFMXE
 
 [Document10]
-DocumentPath=C:\Users\Leon\Desktop\Meteo_senzor.OutJob
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document11]
 DocumentPath=SX1276.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -223,6 +206,41 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=LRKBUEKI
+
+[Document11]
+DocumentPath=PCB1.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=CQCCQOAL
+
+[ProjectVariant1]
+UniqueID=F51C49AA-8DC6-43F4-BFAD-A40B943C86B2
+Description=Meteo_senzor I2C 0x76
+AllowFabrication=0
+ParameterCount=0
+VariationCount=1
+Variation1=Designator=R7|UniqueId=\ZWPEXRMK\GKDVQRIX|Kind=1|AlternatePart= 
+ParamVariationCount=0
+
+[ProjectVariant2]
+UniqueID=D0C689A8-2B2C-449C-835B-6C5558E36DA5
+Description=Meteo_senzor I2C 0x77
+AllowFabrication=0
+ParameterCount=0
+VariationCount=1
+Variation1=Designator=R6|UniqueId=\ZWPEXRMK\VQBQGCOF|Kind=1|AlternatePart= 
+ParamVariationCount=0
 
 [Configuration1]
 Name=Sources
