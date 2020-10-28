@@ -207,6 +207,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=LRKBUEKI
 
+[Document11]
+DocumentPath=PCB1.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=LATGNARD
+
 [ProjectVariant1]
 UniqueID=F51C49AA-8DC6-43F4-BFAD-A40B943C86B2
 Description=Meteo_senzor I2C 0x76
