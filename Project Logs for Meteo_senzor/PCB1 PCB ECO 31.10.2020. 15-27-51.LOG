@@ -1,0 +1,51 @@
+Removed Pin From Net: NetName=PC2 Pin=*-1
+Removed Pin From Net: NetName=VCC Pin=*-2
+Removed Pin From Net: NetName=VSS Pin=*-3
+Removed Pin From Net: NetName=VSS Pin=*-4
+Removed Pin From Net: NetName=PC0 Pin=*-5
+Removed Pin From Net: NetName=PB4 Pin=*-6
+Removed Pin From Net: NetName=PB1 Pin=*-7
+Removed Pin From Net: NetName=PB0 Pin=*-8
+Removed Pin From Net: NetName=PC13 Pin=*-9
+Removed Pin From Net: NetName=Net*_10 Pin=*-10
+Removed Pin From Net: NetName=Net*_11 Pin=*-11
+Removed Pin From Net: NetName=PB3 Pin=*-12
+Removed Pin From Net: NetName=PA6 Pin=*-13
+Removed Pin From Net: NetName=PA7 Pin=*-14
+Removed Pin From Net: NetName=PA15 Pin=*-15
+Removed Pin From Net: NetName=Net*_16 Pin=*-16
+Removed Pin From Net: NetName=Net*_17 Pin=*-17
+Removed Pin From Net: NetName=PA1 Pin=*-18
+Removed Pin From Net: NetName=VSS Pin=P1-1
+Removed Pin From Net: NetName=PB9 Pin=P1-2
+Removed Pin From Net: NetName=PB8 Pin=P1-3
+Removed Pin From Net: NetName=VCC Pin=P1-4
+Removed Member From Class: ClassName=U_Connectors Member=P1
+Added Component: Designator=*(RC-SM1276-868)
+Add component (AddParameter): Name = "Case/Package"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = "85°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Supply Voltage"; Value = "3.7V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = "-40°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Supply Voltage"; Value = "1.8V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pins"; Value = "18"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS Compliant"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=PC2 Pin=*-1
+Added Pin To Net: NetName=VCC Pin=*-2
+Added Pin To Net: NetName=VSS Pin=*-3
+Added Pin To Net: NetName=VSS Pin=*-4
+Added Pin To Net: NetName=PC0 Pin=*-5
+Added Pin To Net: NetName=PB4 Pin=*-6
+Added Pin To Net: NetName=PB1 Pin=*-7
+Added Pin To Net: NetName=PB0 Pin=*-8
+Added Pin To Net: NetName=PC13 Pin=*-9
+Added Pin To Net: NetName=Net*_10 Pin=*-10
+Added Pin To Net: NetName=Net*_11 Pin=*-11
+Added Pin To Net: NetName=PB3 Pin=*-12
+Added Pin To Net: NetName=PA6 Pin=*-13
+Added Pin To Net: NetName=PA7 Pin=*-14
+Added Pin To Net: NetName=PA15 Pin=*-15
+Added Pin To Net: NetName=Net*_16 Pin=*-16
+Added Pin To Net: NetName=Net*_17 Pin=*-17
+Added Pin To Net: NetName=PA1 Pin=*-18

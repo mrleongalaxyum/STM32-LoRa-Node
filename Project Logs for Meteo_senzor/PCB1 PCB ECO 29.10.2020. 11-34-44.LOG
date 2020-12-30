@@ -1,0 +1,283 @@
+Added Pin To Net: NetName=PC2 Pin=*-1
+Added Pin To Net: NetName=VCC Pin=*-2
+Added Pin To Net: NetName=VSS Pin=*-3
+Added Pin To Net: NetName=VSS Pin=*-4
+Added Pin To Net: NetName=PC0 Pin=*-5
+Added Pin To Net: NetName=PB4 Pin=*-6
+Added Pin To Net: NetName=PB1 Pin=*-7
+Added Pin To Net: NetName=PB0 Pin=*-8
+Added Pin To Net: NetName=PC13 Pin=*-9
+Added Pin To Net: NetName=Net*_10 Pin=*-10
+Added Pin To Net: NetName=Net*_11 Pin=*-11
+Added Pin To Net: NetName=PB3 Pin=*-12
+Added Pin To Net: NetName=PA6 Pin=*-13
+Added Pin To Net: NetName=PA7 Pin=*-14
+Added Pin To Net: NetName=PA15 Pin=*-15
+Added Pin To Net: NetName=Net*_16 Pin=*-16
+Added Pin To Net: NetName=Net*_17 Pin=*-17
+Added Pin To Net: NetName=PA1 Pin=*-18
+Added Pin To Net: NetName=VCC Pin=C1-1
+Added Pin To Net: NetName=VSS Pin=C1-2
+Added Pin To Net: NetName=VCC Pin=C2-1
+Added Pin To Net: NetName=VSS Pin=C2-2
+Added Pin To Net: NetName=VSS Pin=C3-1
+Added Pin To Net: NetName=VCC Pin=C3-2
+Added Pin To Net: NetName=NetC4_1 Pin=C4-1
+Added Pin To Net: NetName=VSS Pin=C4-2
+Added Pin To Net: NetName=NetC5_1 Pin=C5-1
+Added Pin To Net: NetName=VSS Pin=C5-2
+Added Pin To Net: NetName=VCC Pin=C6-1
+Added Pin To Net: NetName=VSS Pin=C6-2
+Added Pin To Net: NetName=VCC Pin=C7-1
+Added Pin To Net: NetName=VSS Pin=C7-2
+Added Pin To Net: NetName=VCC Pin=C8-1
+Added Pin To Net: NetName=VSS Pin=C8-2
+Added Pin To Net: NetName=VSS Pin=C9-1
+Added Pin To Net: NetName=VCC Pin=C9-2
+Added Pin To Net: NetName=VSS Pin=J1-1
+Added Pin To Net: NetName=VBat Pin=J1-2
+Added Pin To Net: NetName=VBat Pin=J2-1
+Added Pin To Net: NetName=NetC5_1 Pin=J2-2
+Added Pin To Net: NetName=NetC4_1 Pin=J3-1
+Added Pin To Net: NetName=VCC Pin=J3-2
+Added Pin To Net: NetName=VSS Pin=J4-1
+Added Pin To Net: NetName=VBat Pin=J4-2
+Added Pin To Net: NetName=VSS Pin=P1-1
+Added Pin To Net: NetName=PB9 Pin=P1-2
+Added Pin To Net: NetName=PB8 Pin=P1-3
+Added Pin To Net: NetName=VCC Pin=P1-4
+Added Pin To Net: NetName=VSS Pin=P2-1
+Added Pin To Net: NetName=PA14 Pin=P2-2
+Added Pin To Net: NetName=PA13 Pin=P2-3
+Added Pin To Net: NetName=NRST Pin=P2-4
+Added Pin To Net: NetName=VCC Pin=P2-5
+Added Pin To Net: NetName=PA0 Pin=P3-1
+Added Pin To Net: NetName=PA1 Pin=P3-2
+Added Pin To Net: NetName=PA2 Pin=P3-3
+Added Pin To Net: NetName=PA3 Pin=P3-4
+Added Pin To Net: NetName=PA4 Pin=P3-5
+Added Pin To Net: NetName=PA5 Pin=P3-6
+Added Pin To Net: NetName=PA6 Pin=P3-7
+Added Pin To Net: NetName=PA7 Pin=P3-8
+Added Pin To Net: NetName=PA8 Pin=P3-9
+Added Pin To Net: NetName=PA9 Pin=P3-10
+Added Pin To Net: NetName=PA10 Pin=P3-11
+Added Pin To Net: NetName=PA11 Pin=P3-12
+Added Pin To Net: NetName=PA12 Pin=P3-13
+Added Pin To Net: NetName=PA13 Pin=P3-14
+Added Pin To Net: NetName=PA14 Pin=P3-15
+Added Pin To Net: NetName=PA15 Pin=P3-16
+Added Pin To Net: NetName=PB1 Pin=P3-17
+Added Pin To Net: NetName=PB2 Pin=P3-18
+Added Pin To Net: NetName=PB3 Pin=P3-19
+Added Pin To Net: NetName=PB4 Pin=P3-20
+Added Pin To Net: NetName=PB5 Pin=P3-21
+Added Pin To Net: NetName=PB6 Pin=P3-22
+Added Pin To Net: NetName=PB7 Pin=P3-23
+Added Pin To Net: NetName=PB8 Pin=P3-24
+Added Pin To Net: NetName=PB9 Pin=P3-25
+Added Pin To Net: NetName=PB10 Pin=P3-26
+Added Pin To Net: NetName=PB11 Pin=P3-27
+Added Pin To Net: NetName=PB12 Pin=P3-28
+Added Pin To Net: NetName=PB13 Pin=P3-29
+Added Pin To Net: NetName=PB14 Pin=P3-30
+Added Pin To Net: NetName=PB15 Pin=P4-1
+Added Pin To Net: NetName=PC1 Pin=P4-2
+Added Pin To Net: NetName=PC2 Pin=P4-3
+Added Pin To Net: NetName=PC3 Pin=P4-4
+Added Pin To Net: NetName=PC4 Pin=P4-5
+Added Pin To Net: NetName=PC5 Pin=P4-6
+Added Pin To Net: NetName=PC6 Pin=P4-7
+Added Pin To Net: NetName=PC7 Pin=P4-8
+Added Pin To Net: NetName=PC8 Pin=P4-9
+Added Pin To Net: NetName=PC9 Pin=P4-10
+Added Pin To Net: NetName=PC10 Pin=P4-11
+Added Pin To Net: NetName=PC11 Pin=P4-12
+Added Pin To Net: NetName=PC12 Pin=P4-13
+Added Pin To Net: NetName=PC13 Pin=P4-14
+Added Pin To Net: NetName=PC14 Pin=P4-15
+Added Pin To Net: NetName=PC15 Pin=P4-16
+Added Pin To Net: NetName=PD2 Pin=P4-17
+Added Pin To Net: NetName=NetP4_18 Pin=P4-18
+Added Pin To Net: NetName=NetP4_19 Pin=P4-19
+Added Pin To Net: NetName=NetP4_20 Pin=P4-20
+Added Pin To Net: NetName=NetP4_21 Pin=P4-21
+Added Pin To Net: NetName=NetP4_22 Pin=P4-22
+Added Pin To Net: NetName=NetP4_23 Pin=P4-23
+Added Pin To Net: NetName=NetP4_24 Pin=P4-24
+Added Pin To Net: NetName=NetP4_25 Pin=P4-25
+Added Pin To Net: NetName=NetP4_26 Pin=P4-26
+Added Pin To Net: NetName=NetP4_27 Pin=P4-27
+Added Pin To Net: NetName=NetP4_28 Pin=P4-28
+Added Pin To Net: NetName=NetP4_29 Pin=P4-29
+Added Pin To Net: NetName=NetP4_30 Pin=P4-30
+Added Pin To Net: NetName=VSS Pin=P5-1
+Added Pin To Net: NetName=USART2 RX Pin=P5-2
+Added Pin To Net: NetName=USART2 TX Pin=P5-3
+Added Pin To Net: NetName=VCC Pin=P5-4
+Added Pin To Net: NetName=PA2 Pin=R1-1
+Added Pin To Net: NetName=USART2 RX Pin=R1-2
+Added Pin To Net: NetName=PA3 Pin=R2-1
+Added Pin To Net: NetName=USART2 TX Pin=R2-2
+Added Pin To Net: NetName=VSS Pin=R3-1
+Added Pin To Net: NetName=BOOT0 Pin=R3-2
+Added Pin To Net: NetName=PB8 Pin=R4-1
+Added Pin To Net: NetName=VCC Pin=R4-2
+Added Pin To Net: NetName=PB9 Pin=R5-1
+Added Pin To Net: NetName=VCC Pin=R5-2
+Added Pin To Net: NetName=VSS Pin=R6-1
+Added Pin To Net: NetName=NetR6_2 Pin=R6-2
+Added Pin To Net: NetName=VCC Pin=R7-1
+Added Pin To Net: NetName=NetR6_2 Pin=R7-2
+Added Pin To Net: NetName=VCC Pin=U1-1
+Added Pin To Net: NetName=PC13 Pin=U1-2
+Added Pin To Net: NetName=PC14 Pin=U1-3
+Added Pin To Net: NetName=PC15 Pin=U1-4
+Added Pin To Net: NetName=NetU1_5 Pin=U1-5
+Added Pin To Net: NetName=NetU1_6 Pin=U1-6
+Added Pin To Net: NetName=NRST Pin=U1-7
+Added Pin To Net: NetName=PC0 Pin=U1-8
+Added Pin To Net: NetName=PC1 Pin=U1-9
+Added Pin To Net: NetName=PC2 Pin=U1-10
+Added Pin To Net: NetName=PC3 Pin=U1-11
+Added Pin To Net: NetName=VSS Pin=U1-12
+Added Pin To Net: NetName=VCC Pin=U1-13
+Added Pin To Net: NetName=PA0 Pin=U1-14
+Added Pin To Net: NetName=PA1 Pin=U1-15
+Added Pin To Net: NetName=PA2 Pin=U1-16
+Added Pin To Net: NetName=PA3 Pin=U1-17
+Added Pin To Net: NetName=VSS Pin=U1-18
+Added Pin To Net: NetName=VCC Pin=U1-19
+Added Pin To Net: NetName=PA4 Pin=U1-20
+Added Pin To Net: NetName=PA5 Pin=U1-21
+Added Pin To Net: NetName=PA6 Pin=U1-22
+Added Pin To Net: NetName=PA7 Pin=U1-23
+Added Pin To Net: NetName=PC4 Pin=U1-24
+Added Pin To Net: NetName=PC5 Pin=U1-25
+Added Pin To Net: NetName=PB0 Pin=U1-26
+Added Pin To Net: NetName=PB1 Pin=U1-27
+Added Pin To Net: NetName=PB2 Pin=U1-28
+Added Pin To Net: NetName=PB10 Pin=U1-29
+Added Pin To Net: NetName=PB11 Pin=U1-30
+Added Pin To Net: NetName=VSS Pin=U1-31
+Added Pin To Net: NetName=VCC Pin=U1-32
+Added Pin To Net: NetName=PB12 Pin=U1-33
+Added Pin To Net: NetName=PB13 Pin=U1-34
+Added Pin To Net: NetName=PB14 Pin=U1-35
+Added Pin To Net: NetName=PB15 Pin=U1-36
+Added Pin To Net: NetName=PC6 Pin=U1-37
+Added Pin To Net: NetName=PC7 Pin=U1-38
+Added Pin To Net: NetName=PC8 Pin=U1-39
+Added Pin To Net: NetName=PC9 Pin=U1-40
+Added Pin To Net: NetName=PA8 Pin=U1-41
+Added Pin To Net: NetName=PA9 Pin=U1-42
+Added Pin To Net: NetName=PA10 Pin=U1-43
+Added Pin To Net: NetName=PA11 Pin=U1-44
+Added Pin To Net: NetName=PA12 Pin=U1-45
+Added Pin To Net: NetName=PA13 Pin=U1-46
+Added Pin To Net: NetName=VSS Pin=U1-47
+Added Pin To Net: NetName=VCC Pin=U1-48
+Added Pin To Net: NetName=PA14 Pin=U1-49
+Added Pin To Net: NetName=PA15 Pin=U1-50
+Added Pin To Net: NetName=PC10 Pin=U1-51
+Added Pin To Net: NetName=PC11 Pin=U1-52
+Added Pin To Net: NetName=PC12 Pin=U1-53
+Added Pin To Net: NetName=PD2 Pin=U1-54
+Added Pin To Net: NetName=PB3 Pin=U1-55
+Added Pin To Net: NetName=PB4 Pin=U1-56
+Added Pin To Net: NetName=PB5 Pin=U1-57
+Added Pin To Net: NetName=PB6 Pin=U1-58
+Added Pin To Net: NetName=PB7 Pin=U1-59
+Added Pin To Net: NetName=BOOT0 Pin=U1-60
+Added Pin To Net: NetName=PB8 Pin=U1-61
+Added Pin To Net: NetName=PB9 Pin=U1-62
+Added Pin To Net: NetName=VSS Pin=U1-63
+Added Pin To Net: NetName=VCC Pin=U1-64
+Added Pin To Net: NetName=VSS Pin=U2-1
+Added Pin To Net: NetName=NetC4_1 Pin=U2-2
+Added Pin To Net: NetName=NetC5_1 Pin=U2-3
+Added Pin To Net: NetName=VSS Pin=U3-1
+Added Pin To Net: NetName=VCC Pin=U3-2
+Added Pin To Net: NetName=PB9 Pin=U3-3
+Added Pin To Net: NetName=PB8 Pin=U3-4
+Added Pin To Net: NetName=NetR6_2 Pin=U3-5
+Added Pin To Net: NetName=VCC Pin=U3-6
+Added Pin To Net: NetName=VSS Pin=U3-7
+Added Pin To Net: NetName=VCC Pin=U3-8
+Added Member To Class: ClassName=U_SX1276 Member=Component * RC-SM1276-868
+Added Member To Class: ClassName=U_MCU Member=Component C1 100nF
+Added Member To Class: ClassName=U_MCU Member=Component C2 1uF
+Added Member To Class: ClassName=U_MCU Member=Component C3 10uF
+Added Member To Class: ClassName=U_Battery Circuit Member=Component C4 1uF
+Added Member To Class: ClassName=U_Battery Circuit Member=Component C5 1uF
+Added Member To Class: ClassName=U_BME280 Member=Component C6 100nF
+Added Member To Class: ClassName=U_BME280 Member=Component C7 100nF
+Added Member To Class: ClassName=U_BME280 Member=Component C8 1uF
+Added Member To Class: ClassName=U_SX1276 Member=Component C9 10uF
+Added Member To Class: ClassName=U_Battery Circuit Member=Component J1 JST-PH2 FEMALE
+Added Member To Class: ClassName=U_Battery Circuit Member=Component J2 BAT current
+Added Member To Class: ClassName=U_Battery Circuit Member=Component J3 DEV CUR
+Added Member To Class: ClassName=U_Battery Circuit Member=Component J4 PWR_IN
+Added Member To Class: ClassName=U_Connectors Member=Component P1 I2C header 2.54
+Added Member To Class: ClassName=U_Connectors Member=Component P2 SWD header 2.54
+Added Member To Class: ClassName=U_Connectors Member=Component P3 Header 30
+Added Member To Class: ClassName=U_Connectors Member=Component P4 Header 30
+Added Member To Class: ClassName=U_Connectors Member=Component P5 UART2 header 2.54
+Added Member To Class: ClassName=U_MCU Member=Component R1 0R
+Added Member To Class: ClassName=U_MCU Member=Component R2 0R
+Added Member To Class: ClassName=U_MCU Member=Component R3 100K
+Added Member To Class: ClassName=U_BME280 Member=Component R4 4.7k
+Added Member To Class: ClassName=U_BME280 Member=Component R5 4.7k
+Added Member To Class: ClassName=U_BME280 Member=Component R6 0R
+Added Member To Class: ClassName=U_BME280 Member=Component R7 0R
+Added Member To Class: ClassName=U_MCU Member=Component U1 STM32L072RZT6
+Added Member To Class: ClassName=U_Battery Circuit Member=Component U2 MCP1700T-3302E/TT
+Added Member To Class: ClassName=U_BME280 Member=Component U3 BME280
+Added Member To Class: ClassName=PA[0..15] Member=Element[0]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[1]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[2]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[3]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[4]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[5]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[6]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[7]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[8]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[9]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[10]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[11]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[12]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[13]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[14]: PA
+Added Member To Class: ClassName=PA[0..15] Member=Element[15]: PA
+Added Member To Class: ClassName=PB[0..15] Member=Element[0]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[1]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[2]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[3]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[4]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[5]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[6]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[7]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[8]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[9]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[10]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[11]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[12]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[13]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[14]: PB
+Added Member To Class: ClassName=PB[0..15] Member=Element[15]: PB
+Added Member To Class: ClassName=PC[0..15] Member=Element[0]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[1]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[2]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[3]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[4]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[5]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[6]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[7]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[8]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[9]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[10]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[11]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[12]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[13]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[14]: PC
+Added Member To Class: ClassName=PC[0..15] Member=Element[15]: PC

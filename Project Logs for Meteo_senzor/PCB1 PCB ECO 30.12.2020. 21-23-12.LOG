@@ -1,0 +1,6 @@
+Change Component Designator: OldDesignator=* NewDesignator=LoRa
+Change Net Name : Old Net Name=Net*_10 New Net Name=NetLoRa_10
+Change Net Name : Old Net Name=Net*_11 New Net Name=NetLoRa_11
+Change Net Name : Old Net Name=Net*_16 New Net Name=NetLoRa_16
+Change Net Name : Old Net Name=Net*_17 New Net Name=NetLoRa_17
+Added Member To Class: ClassName=U_SX1276 Member=Component LoRa RC-SM1276-868

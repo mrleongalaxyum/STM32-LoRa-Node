@@ -1,0 +1,10 @@
+Change Component Designator: OldDesignator=* NewDesignator=LoRa
+Change Net Name : Old Net Name=Net*_10 New Net Name=NetLoRa_10
+Change Net Name : Old Net Name=Net*_11 New Net Name=NetLoRa_11
+Change Net Name : Old Net Name=Net*_16 New Net Name=NetLoRa_16
+Change Net Name : Old Net Name=Net*_17 New Net Name=NetLoRa_17
+Added Room: Name=U_Battery Circuit
+Added Room: Name=U_BME280
+Added Room: Name=U_Connectors
+Added Room: Name=U_MCU
+Added Room: Name=U_SX1276

@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=VSS Pin=J1-1
+Removed Pin From Net: NetName=VBat Pin=J1-2
+Removed Pin From Net: NetName=VSS Pin=J4-1
+Removed Pin From Net: NetName=VBat Pin=J4-2
+Removed Pin From Net: NetName=PA2 Pin=R1-1
+Removed Pin From Net: NetName=PA3 Pin=R2-1
+Removed Member From Class: ClassName=U_Battery Circuit Member=J1
+Removed Member From Class: ClassName=U_Battery Circuit Member=J4
+Removed Member From Class: ClassName=U_MCU Member=R1
+Removed Member From Class: ClassName=U_MCU Member=R2
+Added Pin To Net: NetName=VBat Pin=P4-30

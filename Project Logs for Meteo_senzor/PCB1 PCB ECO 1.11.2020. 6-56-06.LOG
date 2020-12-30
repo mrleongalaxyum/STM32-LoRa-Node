@@ -1,0 +1,57 @@
+Removed Pin From Net: NetName=VSS Pin=U1-12
+Removed Pin From Net: NetName=VSS Pin=U1-18
+Removed Pin From Net: NetName=VSS Pin=U1-31
+Removed Pin From Net: NetName=VSS Pin=U1-47
+Removed Pin From Net: NetName=VSS Pin=U1-63
+Added Component: Designator=C11(CAPC1608X90X35LL10T15)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GQM1885C2A4R3BB01D"; VariantName = "[No Variations]"
+Added Component: Designator=C12(CAPC1608X90X35LL10T15)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GQM1885C2A4R3BB01D"; VariantName = "[No Variations]"
+Added Component: Designator=X?(ABRA-ABS25-4_V)
+Add component (AddParameter): Name = "Brand"; Value = "ABRACON"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case Height"; Value = "2.5mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case Length"; Value = "8mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case Width"; Value = "3.8mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "https://datasheet.ciiva.com/854/abs25-854528.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Jun-17"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Dimensions"; Value = "3.8mmWx8mmLx2.5mmH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ESR"; Value = "50kOhms"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Factory Pack Quantity"; Value = "3000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Frequency"; Value = "32.768kHz"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Load Capacitance"; Value = "6pF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Abracon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.abracon.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Style"; Value = "SMD/SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Temperature Range"; Value = "-40Cto+85C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package / Case"; Value = "8mmx3.8mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "4-Pin Surface Mount Device, Body 8 x 3.8 mm, Pitch 5.5 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "ABS25"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Reel"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Product Category"; Value = "Crystals"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "Details"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = "ABS25"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Termination Style"; Value = "SMD/SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "20PPM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "LowFrequencyCrystal"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=PC14 Pin=C11-1
+Added Pin To Net: NetName=VSS Pin=C11-2
+Added Pin To Net: NetName=VSS Pin=C12-1
+Added Pin To Net: NetName=PC15 Pin=C12-2
+Added Pin To Net: NetName=PC14 Pin=X?-1
+Added Pin To Net: NetName=PC15 Pin=X?-4
+Change Net Name : Old Net Name=VSS New Net Name=GND
+Added Pin To Net: NetName=NetX?_2 Pin=X?-2
+Added Net: Name=NetX?_2
+Added Pin To Net: NetName=NetX?_3 Pin=X?-3
+Added Net: Name=NetX?_3
+Added Pin To Net: NetName=VSS Pin=U1-12
+Added Pin To Net: NetName=VSS Pin=U1-18
+Added Pin To Net: NetName=VSS Pin=U1-31
+Added Pin To Net: NetName=VSS Pin=U1-47
+Added Pin To Net: NetName=VSS Pin=U1-63
+Added Net: Name=VSS
+Added Member To Class: ClassName=U_MCU Member=Component C11 4.3pF
+Added Member To Class: ClassName=U_MCU Member=Component C12 4.3pF
+Added Member To Class: ClassName=U_MCU Member=Component X? ABS25-32.768KHZ-6-T
