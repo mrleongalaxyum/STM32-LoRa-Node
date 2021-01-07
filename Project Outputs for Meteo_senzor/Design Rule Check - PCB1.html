@@ -1,0 +1,744 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD21\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">7.1.2021.</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">4:59:51</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc" class="file"><acronym title="D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc">D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">136</td></tr>
+</table>
+</td>
+</table><a name="IDNMHXXFCHRLAHJU5A1QBQQV2YEEMA15ZJG0BTHDEH1ERAVEZB40XN"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPDPQNUMDVKGFHI13NV4WACTZ5NYV1ECYJ5IECBFND52DNQHJOVC">Clearance Constraint (Gap=0.152mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJMF3FIQM0BWJHA1CPWCWC1U2MEQOQJWRQAMLIYHSS0QX4T0HTS5C">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSDHYCYIGXCPPJIHDFIKKQAOI0KPBBZSUSP3CGDMS0ZQJ0IMZC5TE">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAUQVIYBDQFVLBMFXWKBCPM5PXJ4RHORMVXR3EANDH0UVMV13XOMB">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2DJE5GCSVQPXH1U2IYHZBC1QKPBIGAM0SKSWOYCDSOWWV4ORBFNK">Width Constraint (Min=0.152mm) (Max=1.016mm) (Preferred=0.305mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLUOX1RVCSPJWJUNRL1C1H4OEXPHU3Y0WTHMN4HLPDSICJ2V2BBWD">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDB5WK0LR2KFOZLS3RC1U1HN2Q1O1FO1IXJQJM3OFKSZTVU52MVYNC">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3QAWZXXDVER3JN1KJU2HG4LAAC1FSDYOTNOU2DOP3MHP4XJL1ZOP">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBVUF0VI5WTWTVBQQ2EWQ4HNGW5141RYMYBRKJNNG2CIRRVQSKM">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">126</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1NDNBBPD2LZ5M2QTAKNN140EYIQQAGGEUPROKTKPDJJHKFFGIQWH">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3MHNOV04TSLDHLVGSP0YJMPR1JXKVLOLPV3N3KLYKF4GTDB01ULD">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBJIEBSSVDXF3KRPWB5LS5C0SDEZUUYTBEHADUGM1KWPTFWFRL2YH">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID52SVBV3GP0PZBQSK3T1TZSLKTHZYYFCAIFLU4QC0RO2ILTNYEDHG">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">136</td>
+</tr>
+</table><br><a name="IDBVUF0VI5WTWTVBQQ2EWQ4HNGW5141RYMYBRKJNNG2CIRRVQSKM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=489.442mil|Location2.X=500.692mil|Location1.Y=1352.441mil|Location2.Y=1363.691mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=489.442mil|Location2.X=500.692mil|Location1.Y=1352.441mil|Location2.Y=1363.691mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad C13-1(12.029mm,34.529mm) on Bottom Layer And Pad C13-2(12.609mm,33.949mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=444.384mil|Location2.X=455.634mil|Location1.Y=1350.53mil|Location2.Y=1362.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=444.384mil|Location2.X=455.634mil|Location1.Y=1350.53mil|Location2.Y=1362.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.209mm &lt; 0.254mm) Between Pad C13-1(12.029mm,34.529mm) on Bottom Layer And Via (11.006mm,34.196mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.209mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=487.098mil|Location2.X=498.348mil|Location1.Y=1313.444mil|Location2.Y=1324.694mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=487.098mil|Location2.X=498.348mil|Location1.Y=1313.444mil|Location2.Y=1324.694mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.039mm &lt; 0.254mm) Between Pad C13-2(12.609mm,33.949mm) on Bottom Layer And Via (12.218mm,33.207mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.039mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=689.434mil|Location2.X=700.684mil|Location1.Y=1952.376mil|Location2.Y=1963.626mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=689.434mil|Location2.X=700.684mil|Location1.Y=1952.376mil|Location2.Y=1963.626mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad C2-1(16.878mm,50.433mm) on Bottom Layer And Pad C2-2(16.878mm,49.033mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=596.49mil|Location2.X=607.74mil|Location1.Y=1193.664mil|Location2.Y=1204.914mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=596.49mil|Location2.X=607.74mil|Location1.Y=1193.664mil|Location2.Y=1204.914mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.106mm &lt; 0.254mm) Between Pad C3-1(14.213mm,30.673mm) on Bottom Layer And Via (15.748mm,30.475mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.106mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=575.165mil|Location2.X=586.415mil|Location1.Y=1278.924mil|Location2.Y=1290.331mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=575.165mil|Location2.X=586.415mil|Location1.Y=1278.924mil|Location2.Y=1290.331mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.251mm &lt; 0.254mm) Between Pad C3-2(15.875mm,32.334mm) on Bottom Layer And Via (14.351mm,32.969mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.251mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=610.535mil|Location2.X=621.785mil|Location1.Y=1311.579mil|Location2.Y=1322.829mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=610.535mil|Location2.X=621.785mil|Location1.Y=1311.579mil|Location2.Y=1322.829mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.192mm &lt; 0.254mm) Between Pad C3-2(15.875mm,32.334mm) on Bottom Layer And Via (15.586mm,33.95mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.192mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=813.8mil|Location2.X=825.05mil|Location1.Y=469.815mil|Location2.Y=481.065mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=813.8mil|Location2.X=825.05mil|Location1.Y=469.815mil|Location2.Y=481.065mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad C4-1(21.59mm,11.376mm) on Bottom Layer And Pad C4-2(21.59mm,12.776mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=573.8mil|Location2.X=585.05mil|Location1.Y=499.935mil|Location2.Y=511.185mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=573.8mil|Location2.X=585.05mil|Location1.Y=499.935mil|Location2.Y=511.185mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad C5-1(15.494mm,12.141mm) on Bottom Layer And Pad C5-2(15.494mm,13.541mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=454.415mil|Location2.X=465.665mil|Location1.Y=2046.965mil|Location2.Y=2059.017mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=454.415mil|Location2.X=465.665mil|Location1.Y=2046.965mil|Location2.Y=2059.017mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.211mm &lt; 0.254mm) Between Pad C6-1(12.162mm,51.703mm) on Top Layer And Via (11.272mm,52.429mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.211mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=548.447mil|Location2.X=559.697mil|Location1.Y=1985.352mil|Location2.Y=1996.602mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=548.447mil|Location2.X=559.697mil|Location1.Y=1985.352mil|Location2.Y=1996.602mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.249mm &lt; 0.254mm) Between Pad C7-1(13.577mm,50.179mm) on Bottom Layer And Pad C8-1(14.974mm,50.433mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.249mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=548.447mil|Location2.X=559.697mil|Location1.Y=1954.282mil|Location2.Y=1965.532mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=548.447mil|Location2.X=559.697mil|Location1.Y=1954.282mil|Location2.Y=1965.532mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.249mm &lt; 0.254mm) Between Pad C7-2(13.577mm,49.399mm) on Bottom Layer And Pad C8-1(14.974mm,50.433mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.249mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=548.447mil|Location2.X=559.697mil|Location1.Y=1923.81mil|Location2.Y=1935.06mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=548.447mil|Location2.X=559.697mil|Location1.Y=1923.81mil|Location2.Y=1935.06mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.249mm &lt; 0.254mm) Between Pad C7-2(13.577mm,49.399mm) on Bottom Layer And Pad C8-2(14.974mm,49.033mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.249mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=614.494mil|Location2.X=625.744mil|Location1.Y=1952.375mil|Location2.Y=1963.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=614.494mil|Location2.X=625.744mil|Location1.Y=1952.375mil|Location2.Y=1963.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad C8-1(14.974mm,50.433mm) on Bottom Layer And Pad C8-2(14.974mm,49.033mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=303.525mil|Location2.X=314.775mil|Location1.Y=2588.375mil|Location2.Y=2599.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=303.525mil|Location2.X=314.775mil|Location1.Y=2588.375mil|Location2.Y=2599.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.068mm &lt; 0.254mm) Between Pad C9-2(8.763mm,65.862mm) on Bottom Layer And Via (7.417mm,65.888mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.068mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=768.548mil|Location2.X=779.798mil|Location1.Y=2637.375mil|Location2.Y=2648.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=768.548mil|Location2.X=779.798mil|Location1.Y=2637.375mil|Location2.Y=2648.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.171mm &lt; 0.254mm) Between Pad LoRa-18(20.701mm,67.132mm) on Top Layer And Via (19.177mm,67.132mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.171mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=247.431mil|Location2.X=258.682mil|Location1.Y=2519.22mil|Location2.Y=2531.615mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=247.431mil|Location2.X=258.682mil|Location1.Y=2519.22mil|Location2.Y=2531.615mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.036mm &lt; 0.254mm) Between Pad LoRa-3(5.461mm,64.592mm) on Top Layer And Via (6.782mm,63.906mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.036mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=344.499mil|Location2.X=355.749mil|Location1.Y=1534.251mil|Location2.Y=1545.501mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=344.499mil|Location2.X=355.749mil|Location1.Y=1534.251mil|Location2.Y=1545.501mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.147mm &lt; 0.254mm) Between Pad R3-1(8.841mm,38.458mm) on Bottom Layer And Pad R3-2(9.548mm,39.165mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=329.029mil|Location2.X=340.279mil|Location1.Y=1492.029mil|Location2.Y=1503.279mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=329.029mil|Location2.X=340.279mil|Location1.Y=1492.029mil|Location2.Y=1503.279mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.219mm &lt; 0.254mm) Between Pad R3-1(8.841mm,38.458mm) on Bottom Layer And Via (8.139mm,37.679mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.219mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=356.277mil|Location2.X=367.527mil|Location1.Y=1551.473mil|Location2.Y=1562.723mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=356.277mil|Location2.X=367.527mil|Location1.Y=1551.473mil|Location2.Y=1562.723mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.196mm &lt; 0.254mm) Between Pad R3-2(9.548mm,39.165mm) on Bottom Layer And Via (8.839mm,39.903mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.196mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=441.061mil|Location2.X=452.311mil|Location1.Y=1954.187mil|Location2.Y=1965.437mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=441.061mil|Location2.X=452.311mil|Location1.Y=1954.187mil|Location2.Y=1965.437mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.147mm &lt; 0.254mm) Between Pad R4-1(11.672mm,49.379mm) on Bottom Layer And Pad R4-2(11.672mm,50.179mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=471.419mil|Location2.X=482.669mil|Location1.Y=1925.581mil|Location2.Y=1936.831mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=471.419mil|Location2.X=482.669mil|Location1.Y=1925.581mil|Location2.Y=1936.831mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.236mm &lt; 0.254mm) Between Pad R4-1(11.672mm,49.379mm) on Bottom Layer And Pad R5-1(12.561mm,49.379mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.236mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=471.419mil|Location2.X=482.669mil|Location1.Y=1957.077mil|Location2.Y=1968.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=471.419mil|Location2.X=482.669mil|Location1.Y=1957.077mil|Location2.Y=1968.327mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.236mm &lt; 0.254mm) Between Pad R4-2(11.672mm,50.179mm) on Bottom Layer And Pad R5-2(12.561mm,50.179mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.236mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=476.061mil|Location2.X=487.311mil|Location1.Y=1954.187mil|Location2.Y=1965.437mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=476.061mil|Location2.X=487.311mil|Location1.Y=1954.187mil|Location2.Y=1965.437mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.147mm &lt; 0.254mm) Between Pad R5-1(12.561mm,49.379mm) on Bottom Layer And Pad R5-2(12.561mm,50.179mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=660.219mil|Location2.X=671.469mil|Location1.Y=2028.14mil|Location2.Y=2039.39mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=660.219mil|Location2.X=671.469mil|Location1.Y=2028.14mil|Location2.Y=2039.39mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.047mm &lt; 0.254mm) Between Pad R6-1(17.387mm,52.084mm) on Bottom Layer And Pad R6-2(16.437mm,52.084mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.047mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=660.119mil|Location2.X=671.369mil|Location1.Y=2062.435mil|Location2.Y=2074.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=660.119mil|Location2.X=671.369mil|Location1.Y=2062.435mil|Location2.Y=2074.577mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.063mm &lt; 0.254mm) Between Pad R6-1(17.387mm,52.084mm) on Bottom Layer And Pad R7-2(16.432mm,52.973mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.063mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=622.719mil|Location2.X=633.969mil|Location1.Y=2062.435mil|Location2.Y=2074.577mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=622.719mil|Location2.X=633.969mil|Location1.Y=2062.435mil|Location2.Y=2074.577mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.063mm &lt; 0.254mm) Between Pad R6-2(16.437mm,52.084mm) on Bottom Layer And Pad R7-1(15.482mm,52.973mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.063mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=659.098mil|Location2.X=670.348mil|Location1.Y=2062.435mil|Location2.Y=2073.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=659.098mil|Location2.X=670.348mil|Location1.Y=2062.435mil|Location2.Y=2073.685mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.036mm &lt; 0.254mm) Between Pad R6-2(16.437mm,52.084mm) on Bottom Layer And Pad R7-2(16.432mm,52.973mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.036mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=622.619mil|Location2.X=633.869mil|Location1.Y=2096.73mil|Location2.Y=2107.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=622.619mil|Location2.X=633.869mil|Location1.Y=2096.73mil|Location2.Y=2107.98mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.047mm &lt; 0.254mm) Between Pad R7-1(15.482mm,52.973mm) on Bottom Layer And Pad R7-2(16.432mm,52.973mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.047mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=235.925mil|Location2.X=247.175mil|Location1.Y=1417.589mil|Location2.Y=1428.839mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=235.925mil|Location2.X=247.175mil|Location1.Y=1417.589mil|Location2.Y=1428.839mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-1(6.381mm,36.749mm) on Top Layer And Pad U1-2(6.734mm,36.395mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=228.6mil|Location2.X=239.85mil|Location1.Y=1424.185mil|Location2.Y=1435.435mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=228.6mil|Location2.X=239.85mil|Location1.Y=1424.185mil|Location2.Y=1435.435mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.026mm &lt; 0.254mm) Between Pad U1-1(6.381mm,36.749mm) on Top Layer And Via (5.656mm,36.024mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.026mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=361.199mil|Location2.X=372.449mil|Location1.Y=1292.314mil|Location2.Y=1303.564mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=361.199mil|Location2.X=372.449mil|Location1.Y=1292.314mil|Location2.Y=1303.564mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-10(9.563mm,33.567mm) on Top Layer And Pad U1-11(9.916mm,33.213mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=347.28mil|Location2.X=358.53mil|Location1.Y=1306.234mil|Location2.Y=1317.484mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=347.28mil|Location2.X=358.53mil|Location1.Y=1306.234mil|Location2.Y=1317.484mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-10(9.563mm,33.567mm) on Top Layer And Pad U1-9(9.209mm,33.92mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=375.119mil|Location2.X=386.369mil|Location1.Y=1278.395mil|Location2.Y=1289.645mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=375.119mil|Location2.X=386.369mil|Location1.Y=1278.395mil|Location2.Y=1289.645mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-11(9.916mm,33.213mm) on Top Layer And Pad U1-12(10.27mm,32.859mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=397.06mil|Location2.X=408.31mil|Location1.Y=1323.827mil|Location2.Y=1335.077mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=397.06mil|Location2.X=408.31mil|Location1.Y=1323.827mil|Location2.Y=1335.077mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.051mm &lt; 0.254mm) Between Pad U1-11(9.916mm,33.213mm) on Top Layer And Via (10.189mm,34.193mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.051mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=389.039mil|Location2.X=400.289mil|Location1.Y=1264.476mil|Location2.Y=1275.726mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=389.039mil|Location2.X=400.289mil|Location1.Y=1264.476mil|Location2.Y=1275.726mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-12(10.27mm,32.859mm) on Top Layer And Pad U1-13(10.623mm,32.506mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=386.341mil|Location2.X=397.591mil|Location1.Y=1266.193mil|Location2.Y=1277.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=386.341mil|Location2.X=397.591mil|Location1.Y=1266.193mil|Location2.Y=1277.443mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.051mm &lt; 0.254mm) Between Pad U1-12(10.27mm,32.859mm) on Top Layer And Via (9.964mm,31.877mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.051mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.959mil|Location2.X=414.209mil|Location1.Y=1250.556mil|Location2.Y=1261.806mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.959mil|Location2.X=414.209mil|Location1.Y=1250.556mil|Location2.Y=1261.806mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-13(10.623mm,32.506mm) on Top Layer And Pad U1-14(10.977mm,32.152mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=416.877mil|Location2.X=428.127mil|Location1.Y=1236.638mil|Location2.Y=1247.888mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=416.877mil|Location2.X=428.127mil|Location1.Y=1236.638mil|Location2.Y=1247.888mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-14(10.977mm,32.152mm) on Top Layer And Pad U1-15(11.33mm,31.799mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=404.052mil|Location2.X=415.302mil|Location1.Y=1247.971mil|Location2.Y=1259.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=404.052mil|Location2.X=415.302mil|Location1.Y=1247.971mil|Location2.Y=1259.221mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.083mm &lt; 0.254mm) Between Pad U1-14(10.977mm,32.152mm) on Top Layer And Via (9.964mm,31.877mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=430.797mil|Location2.X=442.047mil|Location1.Y=1222.719mil|Location2.Y=1233.969mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=430.797mil|Location2.X=442.047mil|Location1.Y=1222.719mil|Location2.Y=1233.969mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-15(11.33mm,31.799mm) on Top Layer And Pad U1-16(11.684mm,31.445mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=464.046mil|Location2.X=475.296mil|Location1.Y=1260.224mil|Location2.Y=1271.994mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=464.046mil|Location2.X=475.296mil|Location1.Y=1260.224mil|Location2.Y=1271.994mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.174mm &lt; 0.254mm) Between Pad U1-15(11.33mm,31.799mm) on Top Layer And Via (12.319mm,32.461mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.174mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=460.587mil|Location2.X=471.837mil|Location1.Y=1227.753mil|Location2.Y=1239.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=460.587mil|Location2.X=471.837mil|Location1.Y=1227.753mil|Location2.Y=1239.003mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.084mm &lt; 0.254mm) Between Pad U1-16(11.684mm,31.445mm) on Top Layer And Via (12.156mm,31.014mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.084mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=468.709mil|Location2.X=480.991mil|Location1.Y=1256.206mil|Location2.Y=1267.456mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=468.709mil|Location2.X=480.991mil|Location1.Y=1256.206mil|Location2.Y=1267.456mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.181mm &lt; 0.254mm) Between Pad U1-16(11.684mm,31.445mm) on Top Layer And Via (12.319mm,32.461mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.181mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=589.307mil|Location2.X=600.557mil|Location1.Y=1222.718mil|Location2.Y=1233.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=589.307mil|Location2.X=600.557mil|Location1.Y=1222.718mil|Location2.Y=1233.968mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-17(14.512mm,31.445mm) on Top Layer And Pad U1-18(14.866mm,31.799mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=603.227mil|Location2.X=614.477mil|Location1.Y=1236.638mil|Location2.Y=1247.888mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=603.227mil|Location2.X=614.477mil|Location1.Y=1236.638mil|Location2.Y=1247.888mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-18(14.866mm,31.799mm) on Top Layer And Pad U1-19(15.22mm,32.152mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=617.145mil|Location2.X=628.395mil|Location1.Y=1250.556mil|Location2.Y=1261.806mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=617.145mil|Location2.X=628.395mil|Location1.Y=1250.556mil|Location2.Y=1261.806mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-19(15.22mm,32.152mm) on Top Layer And Pad U1-20(15.573mm,32.506mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=573.245mil|Location2.X=584.495mil|Location1.Y=1278.505mil|Location2.Y=1289.755mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=573.245mil|Location2.X=584.495mil|Location1.Y=1278.505mil|Location2.Y=1289.755mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.193mm &lt; 0.254mm) Between Pad U1-19(15.22mm,32.152mm) on Top Layer And Via (14.351mm,32.969mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.193mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=249.845mil|Location2.X=261.095mil|Location1.Y=1403.669mil|Location2.Y=1414.919mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=249.845mil|Location2.X=261.095mil|Location1.Y=1403.669mil|Location2.Y=1414.919mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-2(6.734mm,36.395mm) on Top Layer And Pad U1-3(7.088mm,36.041mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=235.713mil|Location2.X=246.963mil|Location1.Y=1414.569mil|Location2.Y=1425.819mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=235.713mil|Location2.X=246.963mil|Location1.Y=1414.569mil|Location2.Y=1425.819mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.15mm &lt; 0.254mm) Between Pad U1-2(6.734mm,36.395mm) on Top Layer And Via (5.656mm,36.024mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.15mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=631.064mil|Location2.X=642.314mil|Location1.Y=1264.476mil|Location2.Y=1275.726mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=631.064mil|Location2.X=642.314mil|Location1.Y=1264.476mil|Location2.Y=1275.726mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-20(15.573mm,32.506mm) on Top Layer And Pad U1-21(15.927mm,32.859mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=644.984mil|Location2.X=656.234mil|Location1.Y=1278.396mil|Location2.Y=1289.646mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=644.984mil|Location2.X=656.234mil|Location1.Y=1278.396mil|Location2.Y=1289.646mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-21(15.927mm,32.859mm) on Top Layer And Pad U1-22(16.28mm,33.213mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=608.886mil|Location2.X=620.136mil|Location1.Y=1312.063mil|Location2.Y=1323.313mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=608.886mil|Location2.X=620.136mil|Location1.Y=1312.063mil|Location2.Y=1323.313mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.16mm &lt; 0.254mm) Between Pad U1-21(15.927mm,32.859mm) on Top Layer And Via (15.586mm,33.95mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.16mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=658.904mil|Location2.X=670.154mil|Location1.Y=1292.315mil|Location2.Y=1303.565mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=658.904mil|Location2.X=670.154mil|Location1.Y=1292.315mil|Location2.Y=1303.565mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-22(16.28mm,33.213mm) on Top Layer And Pad U1-23(16.634mm,33.567mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=619.377mil|Location2.X=630.627mil|Location1.Y=1319.636mil|Location2.Y=1330.886mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=619.377mil|Location2.X=630.627mil|Location1.Y=1319.636mil|Location2.Y=1330.886mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.014mm &lt; 0.254mm) Between Pad U1-22(16.28mm,33.213mm) on Top Layer And Via (15.586mm,33.95mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.014mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=672.823mil|Location2.X=684.073mil|Location1.Y=1306.235mil|Location2.Y=1317.485mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=672.823mil|Location2.X=684.073mil|Location1.Y=1306.235mil|Location2.Y=1317.485mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-23(16.634mm,33.567mm) on Top Layer And Pad U1-24(16.987mm,33.92mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=626.032mil|Location2.X=637.282mil|Location1.Y=1328.583mil|Location2.Y=1339.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=626.032mil|Location2.X=637.282mil|Location1.Y=1328.583mil|Location2.Y=1339.833mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.121mm &lt; 0.254mm) Between Pad U1-23(16.634mm,33.567mm) on Top Layer And Via (15.586mm,33.95mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=686.742mil|Location2.X=697.992mil|Location1.Y=1320.154mil|Location2.Y=1331.404mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=686.742mil|Location2.X=697.992mil|Location1.Y=1320.154mil|Location2.Y=1331.404mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-24(16.987mm,33.92mm) on Top Layer And Pad U1-25(17.341mm,34.274mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=700.662mil|Location2.X=711.912mil|Location1.Y=1334.073mil|Location2.Y=1345.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=700.662mil|Location2.X=711.912mil|Location1.Y=1334.073mil|Location2.Y=1345.323mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-25(17.341mm,34.274mm) on Top Layer And Pad U1-26(17.694mm,34.627mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=714.582mil|Location2.X=725.832mil|Location1.Y=1347.993mil|Location2.Y=1359.243mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=714.582mil|Location2.X=725.832mil|Location1.Y=1347.993mil|Location2.Y=1359.243mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-26(17.694mm,34.627mm) on Top Layer And Pad U1-27(18.048mm,34.981mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=728.501mil|Location2.X=739.751mil|Location1.Y=1361.912mil|Location2.Y=1373.162mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=728.501mil|Location2.X=739.751mil|Location1.Y=1361.912mil|Location2.Y=1373.162mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-27(18.048mm,34.981mm) on Top Layer And Pad U1-28(18.401mm,35.334mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=742.42mil|Location2.X=753.67mil|Location1.Y=1375.832mil|Location2.Y=1387.082mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=742.42mil|Location2.X=753.67mil|Location1.Y=1375.832mil|Location2.Y=1387.082mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-28(18.401mm,35.334mm) on Top Layer And Pad U1-29(18.755mm,35.688mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=756.34mil|Location2.X=767.59mil|Location1.Y=1389.751mil|Location2.Y=1401.001mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=756.34mil|Location2.X=767.59mil|Location1.Y=1389.751mil|Location2.Y=1401.001mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-29(18.755mm,35.688mm) on Top Layer And Pad U1-30(19.109mm,36.041mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=263.764mil|Location2.X=275.014mil|Location1.Y=1389.751mil|Location2.Y=1401.001mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=263.764mil|Location2.X=275.014mil|Location1.Y=1389.751mil|Location2.Y=1401.001mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-3(7.088mm,36.041mm) on Top Layer And Pad U1-4(7.441mm,35.688mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=297.492mil|Location2.X=308.742mil|Location1.Y=1426.237mil|Location2.Y=1438.817mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=297.492mil|Location2.X=308.742mil|Location1.Y=1426.237mil|Location2.Y=1438.817mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.189mm &lt; 0.254mm) Between Pad U1-3(7.088mm,36.041mm) on Top Layer And Via (8.128mm,36.652mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.189mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=770.259mil|Location2.X=781.509mil|Location1.Y=1403.67mil|Location2.Y=1414.92mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=770.259mil|Location2.X=781.509mil|Location1.Y=1403.67mil|Location2.Y=1414.92mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-30(19.109mm,36.041mm) on Top Layer And Pad U1-31(19.462mm,36.395mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=784.178mil|Location2.X=795.428mil|Location1.Y=1417.59mil|Location2.Y=1428.84mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=784.178mil|Location2.X=795.428mil|Location1.Y=1417.59mil|Location2.Y=1428.84mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-31(19.462mm,36.395mm) on Top Layer And Pad U1-32(19.816mm,36.749mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=784.178mil|Location2.X=795.428mil|Location1.Y=1576.099mil|Location2.Y=1587.349mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=784.178mil|Location2.X=795.428mil|Location1.Y=1576.099mil|Location2.Y=1587.349mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-33(19.816mm,39.577mm) on Top Layer And Pad U1-34(19.462mm,39.931mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=770.259mil|Location2.X=781.509mil|Location1.Y=1590.019mil|Location2.Y=1601.269mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=770.259mil|Location2.X=781.509mil|Location1.Y=1590.019mil|Location2.Y=1601.269mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-34(19.462mm,39.931mm) on Top Layer And Pad U1-35(19.109mm,40.284mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=756.34mil|Location2.X=767.59mil|Location1.Y=1603.938mil|Location2.Y=1615.188mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=756.34mil|Location2.X=767.59mil|Location1.Y=1603.938mil|Location2.Y=1615.188mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-35(19.109mm,40.284mm) on Top Layer And Pad U1-36(18.755mm,40.638mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=742.42mil|Location2.X=753.67mil|Location1.Y=1617.857mil|Location2.Y=1629.107mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=742.42mil|Location2.X=753.67mil|Location1.Y=1617.857mil|Location2.Y=1629.107mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-36(18.755mm,40.638mm) on Top Layer And Pad U1-37(18.401mm,40.991mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=728.5mil|Location2.X=739.75mil|Location1.Y=1631.777mil|Location2.Y=1643.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=728.5mil|Location2.X=739.75mil|Location1.Y=1631.777mil|Location2.Y=1643.027mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-37(18.401mm,40.991mm) on Top Layer And Pad U1-38(18.048mm,41.345mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=714.581mil|Location2.X=725.831mil|Location1.Y=1645.697mil|Location2.Y=1656.947mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=714.581mil|Location2.X=725.831mil|Location1.Y=1645.697mil|Location2.Y=1656.947mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-38(18.048mm,41.345mm) on Top Layer And Pad U1-39(17.694mm,41.698mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=700.661mil|Location2.X=711.911mil|Location1.Y=1659.616mil|Location2.Y=1670.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=700.661mil|Location2.X=711.911mil|Location1.Y=1659.616mil|Location2.Y=1670.866mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-39(17.694mm,41.698mm) on Top Layer And Pad U1-40(17.341mm,42.052mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=277.684mil|Location2.X=288.934mil|Location1.Y=1375.832mil|Location2.Y=1387.082mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=277.684mil|Location2.X=288.934mil|Location1.Y=1375.832mil|Location2.Y=1387.082mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-4(7.441mm,35.688mm) on Top Layer And Pad U1-5(7.795mm,35.334mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=301.901mil|Location2.X=313.284mil|Location1.Y=1422.818mil|Location2.Y=1434.068mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=301.901mil|Location2.X=313.284mil|Location1.Y=1422.818mil|Location2.Y=1434.068mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.171mm &lt; 0.254mm) Between Pad U1-4(7.441mm,35.688mm) on Top Layer And Via (8.128mm,36.652mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.171mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=686.742mil|Location2.X=697.992mil|Location1.Y=1673.535mil|Location2.Y=1684.785mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=686.742mil|Location2.X=697.992mil|Location1.Y=1673.535mil|Location2.Y=1684.785mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-40(17.341mm,42.052mm) on Top Layer And Pad U1-41(16.987mm,42.405mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=672.823mil|Location2.X=684.073mil|Location1.Y=1687.455mil|Location2.Y=1698.705mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=672.823mil|Location2.X=684.073mil|Location1.Y=1687.455mil|Location2.Y=1698.705mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-41(16.987mm,42.405mm) on Top Layer And Pad U1-42(16.634mm,42.759mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=658.903mil|Location2.X=670.153mil|Location1.Y=1701.374mil|Location2.Y=1712.624mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=658.903mil|Location2.X=670.153mil|Location1.Y=1701.374mil|Location2.Y=1712.624mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-42(16.634mm,42.759mm) on Top Layer And Pad U1-43(16.28mm,43.112mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=644.984mil|Location2.X=656.234mil|Location1.Y=1715.293mil|Location2.Y=1726.543mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=644.984mil|Location2.X=656.234mil|Location1.Y=1715.293mil|Location2.Y=1726.543mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-43(16.28mm,43.112mm) on Top Layer And Pad U1-44(15.927mm,43.466mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=631.064mil|Location2.X=642.314mil|Location1.Y=1729.212mil|Location2.Y=1740.462mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=631.064mil|Location2.X=642.314mil|Location1.Y=1729.212mil|Location2.Y=1740.462mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-44(15.927mm,43.466mm) on Top Layer And Pad U1-45(15.573mm,43.82mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=617.145mil|Location2.X=628.395mil|Location1.Y=1743.132mil|Location2.Y=1754.382mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=617.145mil|Location2.X=628.395mil|Location1.Y=1743.132mil|Location2.Y=1754.382mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-45(15.573mm,43.82mm) on Top Layer And Pad U1-46(15.22mm,44.173mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=603.226mil|Location2.X=614.476mil|Location1.Y=1757.052mil|Location2.Y=1768.302mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=603.226mil|Location2.X=614.476mil|Location1.Y=1757.052mil|Location2.Y=1768.302mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-46(15.22mm,44.173mm) on Top Layer And Pad U1-47(14.866mm,44.527mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=589.306mil|Location2.X=600.556mil|Location1.Y=1770.971mil|Location2.Y=1782.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=589.306mil|Location2.X=600.556mil|Location1.Y=1770.971mil|Location2.Y=1782.221mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-47(14.866mm,44.527mm) on Top Layer And Pad U1-48(14.512mm,44.88mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=556.312mil|Location2.X=567.562mil|Location1.Y=1735.44mil|Location2.Y=1746.69mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=556.312mil|Location2.X=567.562mil|Location1.Y=1735.44mil|Location2.Y=1746.69mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.128mm &lt; 0.254mm) Between Pad U1-47(14.866mm,44.527mm) on Top Layer And Via (13.814mm,44.301mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.128mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=430.797mil|Location2.X=442.047mil|Location1.Y=1770.971mil|Location2.Y=1782.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=430.797mil|Location2.X=442.047mil|Location1.Y=1770.971mil|Location2.Y=1782.221mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-49(11.684mm,44.88mm) on Top Layer And Pad U1-50(11.33mm,44.527mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=291.603mil|Location2.X=302.853mil|Location1.Y=1361.912mil|Location2.Y=1373.162mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=291.603mil|Location2.X=302.853mil|Location1.Y=1361.912mil|Location2.Y=1373.162mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-5(7.795mm,35.334mm) on Top Layer And Pad U1-6(8.148mm,34.981mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=416.877mil|Location2.X=428.127mil|Location1.Y=1757.051mil|Location2.Y=1768.301mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=416.877mil|Location2.X=428.127mil|Location1.Y=1757.051mil|Location2.Y=1768.301mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-50(11.33mm,44.527mm) on Top Layer And Pad U1-51(10.977mm,44.173mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.958mil|Location2.X=414.208mil|Location1.Y=1743.132mil|Location2.Y=1754.382mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.958mil|Location2.X=414.208mil|Location1.Y=1743.132mil|Location2.Y=1754.382mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-51(10.977mm,44.173mm) on Top Layer And Pad U1-52(10.623mm,43.82mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=389.039mil|Location2.X=400.289mil|Location1.Y=1729.212mil|Location2.Y=1740.462mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=389.039mil|Location2.X=400.289mil|Location1.Y=1729.212mil|Location2.Y=1740.462mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-52(10.623mm,43.82mm) on Top Layer And Pad U1-53(10.27mm,43.466mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=375.119mil|Location2.X=386.369mil|Location1.Y=1715.293mil|Location2.Y=1726.543mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=375.119mil|Location2.X=386.369mil|Location1.Y=1715.293mil|Location2.Y=1726.543mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-53(10.27mm,43.466mm) on Top Layer And Pad U1-54(9.916mm,43.112mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=361.199mil|Location2.X=372.449mil|Location1.Y=1701.374mil|Location2.Y=1712.624mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=361.199mil|Location2.X=372.449mil|Location1.Y=1701.374mil|Location2.Y=1712.624mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-54(9.916mm,43.112mm) on Top Layer And Pad U1-55(9.563mm,42.759mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=360.76mil|Location2.X=372.01mil|Location1.Y=1704.056mil|Location2.Y=1715.306mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=360.76mil|Location2.X=372.01mil|Location1.Y=1704.056mil|Location2.Y=1715.306mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.16mm &lt; 0.254mm) Between Pad U1-54(9.916mm,43.112mm) on Top Layer And Via (8.824mm,43.421mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.16mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=347.28mil|Location2.X=358.53mil|Location1.Y=1687.454mil|Location2.Y=1698.704mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=347.28mil|Location2.X=358.53mil|Location1.Y=1687.454mil|Location2.Y=1698.704mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-55(9.563mm,42.759mm) on Top Layer And Pad U1-56(9.209mm,42.405mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=333.361mil|Location2.X=344.611mil|Location1.Y=1673.535mil|Location2.Y=1684.785mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=333.361mil|Location2.X=344.611mil|Location1.Y=1673.535mil|Location2.Y=1684.785mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-56(9.209mm,42.405mm) on Top Layer And Pad U1-57(8.856mm,42.052mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=344.312mil|Location2.X=355.562mil|Location1.Y=1686.47mil|Location2.Y=1697.72mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=344.312mil|Location2.X=355.562mil|Location1.Y=1686.47mil|Location2.Y=1697.72mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.089mm &lt; 0.254mm) Between Pad U1-56(9.209mm,42.405mm) on Top Layer And Via (8.824mm,43.421mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.089mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=319.442mil|Location2.X=330.692mil|Location1.Y=1659.616mil|Location2.Y=1670.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=319.442mil|Location2.X=330.692mil|Location1.Y=1659.616mil|Location2.Y=1670.866mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-57(8.856mm,42.052mm) on Top Layer And Pad U1-58(8.502mm,41.698mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=305.522mil|Location2.X=316.772mil|Location1.Y=1645.697mil|Location2.Y=1656.947mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=305.522mil|Location2.X=316.772mil|Location1.Y=1645.697mil|Location2.Y=1656.947mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-58(8.502mm,41.698mm) on Top Layer And Pad U1-59(8.148mm,41.345mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=291.603mil|Location2.X=302.853mil|Location1.Y=1631.777mil|Location2.Y=1643.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=291.603mil|Location2.X=302.853mil|Location1.Y=1631.777mil|Location2.Y=1643.027mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-59(8.148mm,41.345mm) on Top Layer And Pad U1-60(7.795mm,40.991mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=305.522mil|Location2.X=316.772mil|Location1.Y=1347.992mil|Location2.Y=1359.242mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=305.522mil|Location2.X=316.772mil|Location1.Y=1347.992mil|Location2.Y=1359.242mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-6(8.148mm,34.981mm) on Top Layer And Pad U1-7(8.502mm,34.627mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=277.684mil|Location2.X=288.934mil|Location1.Y=1617.857mil|Location2.Y=1629.107mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=277.684mil|Location2.X=288.934mil|Location1.Y=1617.857mil|Location2.Y=1629.107mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-60(7.795mm,40.991mm) on Top Layer And Pad U1-61(7.441mm,40.638mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=263.764mil|Location2.X=275.014mil|Location1.Y=1603.937mil|Location2.Y=1615.187mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=263.764mil|Location2.X=275.014mil|Location1.Y=1603.937mil|Location2.Y=1615.187mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-61(7.441mm,40.638mm) on Top Layer And Pad U1-62(7.088mm,40.284mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=249.844mil|Location2.X=261.094mil|Location1.Y=1590.019mil|Location2.Y=1601.269mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=249.844mil|Location2.X=261.094mil|Location1.Y=1590.019mil|Location2.Y=1601.269mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-62(7.088mm,40.284mm) on Top Layer And Pad U1-63(6.734mm,39.931mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=256.126mil|Location2.X=267.376mil|Location1.Y=1602.072mil|Location2.Y=1613.322mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=256.126mil|Location2.X=267.376mil|Location1.Y=1602.072mil|Location2.Y=1613.322mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.207mm &lt; 0.254mm) Between Pad U1-62(7.088mm,40.284mm) on Top Layer And Via (6.291mm,41.193mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.207mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=288.894mil|Location2.X=300.2mil|Location1.Y=1555.895mil|Location2.Y=1567.145mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=288.894mil|Location2.X=300.2mil|Location1.Y=1555.895mil|Location2.Y=1567.145mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.242mm &lt; 0.254mm) Between Pad U1-62(7.088mm,40.284mm) on Top Layer And Via (7.821mm,39.266mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.242mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=235.925mil|Location2.X=247.175mil|Location1.Y=1576.099mil|Location2.Y=1587.349mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=235.925mil|Location2.X=247.175mil|Location1.Y=1576.099mil|Location2.Y=1587.349mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-63(6.734mm,39.931mm) on Top Layer And Pad U1-64(6.381mm,39.577mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=237.239mil|Location2.X=248.489mil|Location1.Y=1580.15mil|Location2.Y=1591.4mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=237.239mil|Location2.X=248.489mil|Location1.Y=1580.15mil|Location2.Y=1591.4mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.098mm &lt; 0.254mm) Between Pad U1-63(6.734mm,39.931mm) on Top Layer And Via (5.842mm,40.589mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=232.125mil|Location2.X=245.188mil|Location1.Y=1575.709mil|Location2.Y=1586.959mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=232.125mil|Location2.X=245.188mil|Location1.Y=1575.709mil|Location2.Y=1586.959mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.13mm &lt; 0.254mm) Between Pad U1-64(6.381mm,39.577mm) on Top Layer And Via (5.842mm,40.589mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.13mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=319.442mil|Location2.X=330.692mil|Location1.Y=1334.073mil|Location2.Y=1345.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=319.442mil|Location2.X=330.692mil|Location1.Y=1334.073mil|Location2.Y=1345.323mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-7(8.502mm,34.627mm) on Top Layer And Pad U1-8(8.856mm,34.274mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=350.953mil|Location2.X=362.203mil|Location1.Y=1369.934mil|Location2.Y=1381.184mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=350.953mil|Location2.X=362.203mil|Location1.Y=1369.934mil|Location2.Y=1381.184mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.051mm &lt; 0.254mm) Between Pad U1-7(8.502mm,34.627mm) on Top Layer And Via (9.482mm,34.901mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.051mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=333.361mil|Location2.X=344.611mil|Location1.Y=1320.154mil|Location2.Y=1331.404mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=333.361mil|Location2.X=344.611mil|Location1.Y=1320.154mil|Location2.Y=1331.404mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.195mm &lt; 0.254mm) Between Pad U1-8(8.856mm,34.274mm) on Top Layer And Pad U1-9(9.209mm,33.92mm) on Top Layer [Top Solder] Mask Sliver [0.195mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=378.793mil|Location2.X=390.043mil|Location1.Y=1342.095mil|Location2.Y=1353.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=378.793mil|Location2.X=390.043mil|Location1.Y=1342.095mil|Location2.Y=1353.345mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.051mm &lt; 0.254mm) Between Pad U1-9(9.209mm,33.92mm) on Top Layer And Via (10.189mm,34.193mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.051mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=369.221mil|Location2.X=380.471mil|Location1.Y=1351.671mil|Location2.Y=1362.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=369.221mil|Location2.X=380.471mil|Location1.Y=1351.671mil|Location2.Y=1362.921mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.051mm &lt; 0.254mm) Between Pad U1-9(9.209mm,33.92mm) on Top Layer And Via (9.482mm,34.901mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.051mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.973mil|Location2.X=738.223mil|Location1.Y=487.898mil|Location2.Y=499.728mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.973mil|Location2.X=738.223mil|Location1.Y=487.898mil|Location2.Y=499.728mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.246mm &lt; 0.254mm) Between Pad U2-1(19.558mm,13.025mm) on Bottom Layer And Pad U2-3(17.658mm,12.075mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.246mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.973mil|Location2.X=738.223mil|Location1.Y=451.076mil|Location2.Y=462.966mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.973mil|Location2.X=738.223mil|Location1.Y=451.076mil|Location2.Y=462.966mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.246mm &lt; 0.254mm) Between Pad U2-2(19.558mm,11.125mm) on Bottom Layer And Pad U2-3(17.658mm,12.075mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.246mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=669.375mil|Location2.X=680.625mil|Location1.Y=487.231mil|Location2.Y=498.481mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=669.375mil|Location2.X=680.625mil|Location1.Y=487.231mil|Location2.Y=498.481mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.083mm &lt; 0.254mm) Between Pad U2-3(17.658mm,12.075mm) on Bottom Layer And Via (17.145mm,12.962mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=411.61mil|Location2.X=422.86mil|Location1.Y=1340.627mil|Location2.Y=1351.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=411.61mil|Location2.X=422.86mil|Location1.Y=1340.627mil|Location2.Y=1351.877mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.013mm &lt; 0.254mm) Between Via (10.189mm,34.193mm) from Top Layer to Bottom Layer And Via (11.006mm,34.196mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.013mm] / [Bottom Solder] Mask Sliver [0.013mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=381.615mil|Location2.X=392.865mil|Location1.Y=1354.493mil|Location2.Y=1365.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=381.615mil|Location2.X=392.865mil|Location1.Y=1354.493mil|Location2.Y=1365.743mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Via (10.189mm,34.193mm) from Top Layer to Bottom Layer And Via (9.482mm,34.901mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.197mm] / [Bottom Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=384.641mil|Location2.X=395.891mil|Location1.Y=828.44mil|Location2.Y=839.69mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=384.641mil|Location2.X=395.891mil|Location1.Y=828.44mil|Location2.Y=839.69mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.201mm &lt; 0.254mm) Between Via (10.414mm,21.158mm) from Top Layer to Bottom Layer And Via (9.412mm,21.212mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.201mm] / [Bottom Solder] Mask Sliver [0.201mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=455.462mil|Location2.X=466.712mil|Location1.Y=2067.977mil|Location2.Y=2080.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=455.462mil|Location2.X=466.712mil|Location1.Y=2067.977mil|Location2.Y=2080.409mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.229mm &lt; 0.254mm) Between Via (11.272mm,52.429mm) from Top Layer to Bottom Layer And Via (12.151mm,52.97mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.229mm] / [Bottom Solder] Mask Sliver [0.229mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=518.42mil|Location2.X=530.622mil|Location1.Y=1205.73mil|Location2.Y=1216.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=518.42mil|Location2.X=530.622mil|Location1.Y=1205.73mil|Location2.Y=1216.98mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.016mm &lt; 0.254mm) Between Via (13.081mm,30.429mm) from Top Layer to Bottom Layer And Via (13.54mm,31.108mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.016mm] / [Bottom Solder] Mask Sliver [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.875mil|Location2.X=118.125mil|Location1.Y=2052.375mil|Location2.Y=2064.016mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.875mil|Location2.X=118.125mil|Location1.Y=2052.375mil|Location2.Y=2064.016mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.01mm &lt; 0.254mm) Between Via (2.54mm,52.527mm) from Top Layer to Bottom Layer And Via (3.175mm,52.019mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.01mm] / [Bottom Solder] Mask Sliver [0.01mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=229.375mil|Location2.X=240.625mil|Location1.Y=1911.713mil|Location2.Y=1924.03mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=229.375mil|Location2.X=240.625mil|Location1.Y=1911.713mil|Location2.Y=1924.03mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.101mm &lt; 0.254mm) Between Via (5.588mm,48.484mm) from Top Layer to Bottom Layer And Via (6.35mm,48.971mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.101mm] / [Bottom Solder] Mask Sliver [0.101mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=322.634mil|Location2.X=333.884mil|Location1.Y=1187.938mil|Location2.Y=1199.188mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=322.634mil|Location2.X=333.884mil|Location1.Y=1187.938mil|Location2.Y=1199.188mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.058mm &lt; 0.254mm) Between Via (7.907mm,30.312mm) from Top Layer to Bottom Layer And Via (8.768mm,30.321mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.058mm] / [Bottom Solder] Mask Sliver [0.058mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=314.586mil|Location2.X=325.836mil|Location1.Y=1457.586mil|Location2.Y=1468.836mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=314.586mil|Location2.X=325.836mil|Location1.Y=1457.586mil|Location2.Y=1468.836mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.224mm &lt; 0.254mm) Between Via (8.128mm,36.652mm) from Top Layer to Bottom Layer And Via (8.139mm,37.679mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.224mm] / [Bottom Solder] Mask Sliver [0.224mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=347.141mil|Location2.X=358.391mil|Location1.Y=833.44mil|Location2.Y=844.69mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=347.141mil|Location2.X=358.391mil|Location1.Y=833.44mil|Location2.Y=844.69mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.121mm &lt; 0.254mm) Between Via (8.509mm,21.412mm) from Top Layer to Bottom Layer And Via (9.412mm,21.212mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.121mm] / [Bottom Solder] Mask Sliver [0.121mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID1NDNBBPD2LZ5M2QTAKNN140EYIQQAGGEUPROKTKPDJJHKFFGIQWH"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=199.744mil|Location2.X=207.411mil|Location1.Y=2646.17mil|Location2.Y=2653.836mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=199.744mil|Location2.X=207.411mil|Location1.Y=2646.17mil|Location2.Y=2653.836mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (5.121mm,67.31mm) on Top Overlay And Pad LoRa-1(5.461mm,67.132mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=552.401mil|Location2.X=563.651mil|Location1.Y=890.704mil|Location2.Y=901.954mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=552.401mil|Location2.X=563.651mil|Location1.Y=890.704mil|Location2.Y=901.954mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.186mm &lt; 0.254mm) Between Pad C11-2(13.706mm,22.936mm) on Top Layer And Text "C11" (14.394mm,21.92mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.186mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=564.362mil|Location2.X=575.612mil|Location1.Y=2004.487mil|Location2.Y=2015.737mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=564.362mil|Location2.X=575.612mil|Location1.Y=2004.487mil|Location2.Y=2015.737mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.147mm &lt; 0.254mm) Between Pad C8-1(14.974mm,50.433mm) on Bottom Layer And Text "C7" (14.732mm,51.257mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=363.765mil|Location2.X=375.015mil|Location1.Y=1505.242mil|Location2.Y=1516.492mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=363.765mil|Location2.X=375.015mil|Location1.Y=1505.242mil|Location2.Y=1516.492mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.231mm &lt; 0.254mm) Between Pad R3-1(8.841mm,38.458mm) on Bottom Layer And Text "R3" (11.938mm,36.779mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.231mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=462.777mil|Location2.X=474.027mil|Location1.Y=1928.473mil|Location2.Y=1939.723mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=462.777mil|Location2.X=474.027mil|Location1.Y=1928.473mil|Location2.Y=1939.723mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.056mm &lt; 0.254mm) Between Pad R4-1(11.672mm,49.379mm) on Bottom Layer And Text "R5" (11.938mm,47.447mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=364.378mil|Location2.X=375.628mil|Location1.Y=1116.57mil|Location2.Y=1127.82mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=364.378mil|Location2.X=375.628mil|Location1.Y=1116.57mil|Location2.Y=1127.82mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.041mm &lt; 0.254mm) Between Pad X1-4(10.033mm,27.533mm) on Top Layer And Text "C12" (8.382mm,28.651mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.041mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID3MHNOV04TSLDHLVGSP0YJMPR1JXKVLOLPV3N3KLYKF4GTDB01ULD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=299.651mil|Location2.X=310.901mil|Location1.Y=157.784mil|Location2.Y=169.034mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=299.651mil|Location2.X=310.901mil|Location1.Y=157.784mil|Location2.Y=169.034mil|Absolute=True">Silk To Silk Clearance Constraint: (0.179mm &lt; 0.254mm) Between Text "1" (7.754mm,4.316mm) on Top Overlay And Track (6.454mm,3.961mm)(19.454mm,3.961mm) on Top Overlay Silk Text to Silk Clearance [0.179mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=709.408mil|Location2.X=720.658mil|Location1.Y=157.784mil|Location2.Y=169.034mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=709.408mil|Location2.X=720.658mil|Location1.Y=157.784mil|Location2.Y=169.034mil|Absolute=True">Silk To Silk Clearance Constraint: (0.179mm &lt; 0.254mm) Between Text "5" (17.654mm,4.316mm) on Top Overlay And Track (6.454mm,3.961mm)(19.454mm,3.961mm) on Top Overlay Silk Text to Silk Clearance [0.179mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=905.922mil|Location2.X=917.172mil|Location1.Y=382.368mil|Location2.Y=393.618mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=905.922mil|Location2.X=917.172mil|Location1.Y=382.368mil|Location2.Y=393.618mil|Absolute=True">Silk To Silk Clearance Constraint: (0.079mm &lt; 0.254mm) Between Text "C4" (22.987mm,8.585mm) on Bottom Overlay And Track (23.293mm,0.815mm)(23.293mm,51.915mm) on Bottom Overlay Silk Text to Silk Clearance [0.079mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=434.391mil|Location2.X=445.641mil|Location1.Y=158.324mil|Location2.Y=169.574mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\Projects\Meteo_senzor\Meteo_senzor\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=434.391mil|Location2.X=445.641mil|Location1.Y=158.324mil|Location2.Y=169.574mil|Absolute=True">Silk To Silk Clearance Constraint: (0.206mm &lt; 0.254mm) Between Text "P2" (11.176mm,4.394mm) on Top Overlay And Track (6.454mm,3.961mm)(19.454mm,3.961mm) on Top Overlay Silk Text to Silk Clearance [0.206mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=VBat Pin=R8-1
+Added Pin To Net: NetName=NetC5_1 Pin=R8-1

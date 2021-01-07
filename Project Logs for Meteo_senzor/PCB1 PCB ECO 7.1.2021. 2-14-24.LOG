@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=PC10 Pin=P3-9
+Removed Pin From Net: NetName=PC11 Pin=P3-10
+Removed Pin From Net: NetName=PC12 Pin=P3-11
+Removed Pin From Net: NetName=PD2 Pin=P3-12
+Removed Pin From Net: NetName=PA0 Pin=P3-16
+Removed Pin From Net: NetName=PB9 Pin=P3-17
+Removed Pin From Net: NetName=PB8 Pin=P3-18
+Removed Pin From Net: NetName=PA14 Pin=P3-19
+Added Pin To Net: NetName=PC10 Pin=P3-16
+Added Pin To Net: NetName=PC11 Pin=P3-17
+Added Pin To Net: NetName=PC12 Pin=P3-18
+Added Pin To Net: NetName=PD2 Pin=P3-19
+Added Pin To Net: NetName=NetP3_9 Pin=P3-9
+Added Net: Name=NetP3_9
+Added Pin To Net: NetName=NetP3_10 Pin=P3-10
+Added Net: Name=NetP3_10
+Added Pin To Net: NetName=NetP3_11 Pin=P3-11
+Added Net: Name=NetP3_11
+Added Pin To Net: NetName=NetP3_12 Pin=P3-12
+Added Net: Name=NetP3_12
