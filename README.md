@@ -7,7 +7,7 @@ The board is based on [STM32L072/L073](https://www.st.com/en/microcontrollers-mi
 
 The PCB is drawn in Altium Designer and all the files are available in the repo.
 
-Adafruit feather-style pinout graphics were made by using template provided [here](https://youtu.be/ndVs1UvK6AE)
+Adafruit feather-style pinout graphics were made by using the template provided [here](https://youtu.be/ndVs1UvK6AE)
 
 ![alt text](https://github.com/mrleongalaxyum/STM32-LoRa-Node/blob/master/pinout.png)
 
