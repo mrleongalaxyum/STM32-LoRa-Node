@@ -11,4 +11,4 @@ The PCB is drawn in Altium Designer and all the files are available in the repo
 ![alt text](https://github.com/mrleongalaxyum/STM32-LoRa-Node/blob/master/pinout.png)
 
 
-![alt text](https://github.com/mrleongalaxyum/STM32-LoRa-Node/blob/master/Schematic.pdf)
+The schematics can be found [here](https://github.com/mrleongalaxyum/STM32-LoRa-Node/blob/master/Schematic.pdf)
