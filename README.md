@@ -6,4 +6,4 @@ This is my custom hardware project created as a part of a college project at [Fa
 The PCB is drawn in Altium Designer and all the files are available in the repo
 
 
-https://github.com/mrleongalaxyum/STM32-LoRa-Node/blob/master/pinout.png
+![alt text](https://github.com/mrleongalaxyum/STM32-LoRa-Node/blob/master/pinout.png)
